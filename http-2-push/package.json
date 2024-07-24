@@ -1,0 +1,23 @@
+{
+  "name": "http2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon backend/server.js",
+    "___alternative-option-to-run-frontend-separately___": "",
+    "frontend": "cd ./frontend && http-server -p 3000 --cors --ssl --cert ../server.crt --key ../key.pem"
+  },
+  "keywords": [],
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nanobuffer": "^2.0.0",
+    "serve-handler": "^6.1.3"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "nodemon": "^2.0.12"
+  }
+}
