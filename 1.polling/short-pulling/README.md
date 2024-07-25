@@ -1,0 +1,1 @@
+Due to requestAnimationFrame function, client requests constantly server GET endpoint in order to fetch data. When we fold active tab in browser => requestAnimationFrame slows down the rate of requests to the server until entirely stops it

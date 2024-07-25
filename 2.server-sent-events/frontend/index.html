@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Sourcing Example</title>
+  <style>
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form {
+      display: flex;
+    }
+
+    .messages {
+      margin-top: 20px;
+    }
+
+    .message {
+      background-color: #f1f1f1;
+      padding: 10px;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="center">
+    <div>
+      <div class="form">
+        <input id="messageInput" type="text" />
+        <button onclick="sendMessage()">Отправить</button>
+      </div>
+      <div class="messages" id="messagesContainer"></div>
+    </div>
+  </div>
+
+  <script src="./server-sent-events-chat.js">
+  </script>
+</body>
+
+</html>
