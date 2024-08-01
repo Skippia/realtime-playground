@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Sourcing Example</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <div class="center">
+    <h1>Test:</h1>
+    <button id="ws-open">
+      Open Connection
+    </button>
+
+    <button id="ws-close">
+      Close Connection
+    </button>
+
+    <div class="input-block">
+      <input type="text" id="ws-input">
+      <button id="ws-send">
+        Send message
+      </button>
+    </div>
+
+    <pre id="messages"></pre>
+  </div>
+
+  <script>
+    let ws;
+
+    const messages = document.getElementById('messages');
+    const wsOpen = document.getElementById('ws-open');
+    const wsClose = document.getElementById('ws-close');
+    const wsSend = document.getElementById('ws-send');
+    const wsInput = document.getElementById('ws-input');
+
+    function closeConnection() {
+      if (ws) {
+        ws.close();
+      }
+    }
+
+    function openConnection() {
+      closeConnection();
+
+      ws = new WebSocket('ws://localhost:3000');
+
+      ws.addEventListener('error', () => {
+        showMessage('WebSocket error');
+      });
+
+      ws.addEventListener('open', () => {
+        showMessage('WebSocket connection established');
+      });
+
+      ws.addEventListener('close', () => {
+        showMessage('WebSocket connection closed');
+      });
+
+      ws.addEventListener('message', (msg) => {
+        showMessage(`Received message: ${msg.data}`);
+      });
+    }
+
+    function showMessage(message) {
+      if (!messages) return;
+
+      messages.textContent += `\n${message}`;
+    }
+
+    function sendMessage() {
+      const val = wsInput?.value;
+
+      if (!val) return;
+
+      else if (!ws) {
+        showMessage('No WebSocket connection');
+        return;
+      }
+
+      ws.send(val);
+
+      showMessage(`Sent "${val}"`);
+
+      wsInput.value = '';
+    }
+
+    wsOpen.addEventListener('click', openConnection)
+    wsClose.addEventListener('click', closeConnection);
+    wsSend.addEventListener('click', sendMessage)
+  </script>
+</body>
+
+</html>

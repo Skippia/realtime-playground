@@ -1,0 +1,72 @@
+{
+  "compilerOptions": {
+    // Type checking
+    "allowUnreachableCode": false,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess" : true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "useUnknownInCatchVariables": true,
+    "strict": true, // turns on all following properties (7)
+    // "alwaysStrict": true,
+    // "strictNullChecks": true,
+    // "strictBindCallApply": true,
+    // "strictFunctionTypes": true,
+    // "noImplicitAny": true,
+    // "noImplicitThis": true,
+    // "strictPropertyInitialization": true,
+
+    // Modules
+    "module": "NodeNext",
+    "moduleResolution":  "NodeNext",
+    "resolveJsonModule": true,
+    "types": ["node", "express"],
+    "baseUrl": "./",
+
+    // Emit
+    "emitDeclarationOnly": true, // use with custom transpiler
+    "declarationMap": true, // use for debugging
+    "removeComments": true,
+    "declaration": true,
+    "sourceMap": true,
+    "newLine": "lf",
+    "outDir": "./dist",
+
+    // Interop constraints
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true, // enabled by default
+    "forceConsistentCasingInFileNames": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true, // enabled by default
+
+    // Language and Environment
+    // "emitDecoratorMetadata": true,
+    // "experimentalDecorators": true,
+    "moduleDetection": "force",
+    "target": "ES2023",
+    "lib": [
+        "DOM",
+        "DOM.Iterable",
+        "ES2015.Iterable",
+        "ES2018.AsyncIterable",
+        "ES2015",
+        "ES2017",
+        "ES2018",
+        "ES2019",
+        "ES6",
+        "ESNext"
+      ],
+
+    // Projects
+    "incremental": true, // generates tsbuildinfo
+
+    // Output formatting
+    "pretty": true,
+
+    // Completeness
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+  }
+}
