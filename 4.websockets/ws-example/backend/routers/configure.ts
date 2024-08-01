@@ -1,10 +1,6 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
 import path from 'path';
 import api from './api.js';
-import { fileURLToPath } from "url";
-
-
-// const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default function configure(app: Application) {
   app

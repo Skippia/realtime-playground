@@ -24,8 +24,9 @@ const httpServer = app.listen(port, () => {
 const wss = new WebSocketServer({ noServer: true });
 
 // Authentication
-httpServer.on('upgrade', (req, socket, head) => {
-    console.log('uprgaded!')
+httpServer.on('upgrade', (...rofls) => {
+    const [req, socket, head] = rofls
+    console.log('upgraded!')
 
     socket.on('error', onSocketPreError);
 
@@ -43,10 +44,10 @@ httpServer.on('upgrade', (req, socket, head) => {
 });
 
 wss.on('connection', (ws, req) => {
+    // ws is current connection
     console.log('Connection established');
 
     ws.on('error', onSocketPostError);
-
 
     ws.on('message', (msg, isBinary) => {
         wss.clients.forEach((client) => {

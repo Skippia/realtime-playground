@@ -1,4 +1,4 @@
-let messages = [];
+const messages = [];
 
 document.addEventListener('DOMContentLoaded', () => {
   subscribe();
@@ -25,7 +25,7 @@ async function sendMessage() {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      message: message,
+      message,
       id: Date.now()
     }),
   });
@@ -35,10 +35,13 @@ async function sendMessage() {
 function renderMessages() {
   const container = document.getElementById('messagesContainer');
   container.innerHTML = '';
+
   messages.forEach(mess => {
     const messageDiv = document.createElement('div');
+
     messageDiv.className = 'message';
     messageDiv.textContent = mess.message;
+
     container.appendChild(messageDiv);
   });
 }

@@ -22,7 +22,7 @@
     "module": "NodeNext",
     "moduleResolution":  "NodeNext",
     "resolveJsonModule": true,
-    "types": ["node", "express"],
+    // "types": ["node", "express", "morgan"],
     "baseUrl": "./",
 
     // Emit
