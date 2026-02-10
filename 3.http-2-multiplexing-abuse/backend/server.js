@@ -1,7 +1,6 @@
 import http2 from "http2";
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
 import handler from "serve-handler";
 import Nanobuffer from "nanobuffer";
 

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Hello world</h1>
+</body>
+<script>
+  const ws = new WebSocket("ws://localhost:8080");
+
+  ws.onerror = error => console.log(`Error: ${JSON.stringify(error)}`);
+  ws.onclose = () => console.log('Connection closed');
+  ws.onopen = () => {
+    console.log('Connection opened');
+    ws.send('hello');
+  }
+
+  ws.onmessage = message => console.log(`Received: ${message.data}`);
+
+</script>
+
+</html>
